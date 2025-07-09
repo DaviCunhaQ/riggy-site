@@ -48,7 +48,7 @@ export default function RiggyLanding() {
           <img
             src="/riggy-logo.jpeg"
             alt="Riggy Logo"
-            className="w-20 h-20 rounded-lg"
+            className="w-[100px] h-[100px] rounded-lg"
           />
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
