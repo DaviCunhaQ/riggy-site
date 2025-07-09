@@ -184,7 +184,7 @@ export default function RiggyLanding() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
             <Button
               variant="default"
-              className="py-6 px-12 text-lg font-bold w-full sm:w-auto gap-2"
+              className="py-6 px-12 text-lg font-bold w-full sm:w-auto gap-2 flex justify-center"
             >
               <Download className="w-6 h-6" />
               Download Riggy v1.0
