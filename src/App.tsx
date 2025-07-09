@@ -5,19 +5,25 @@ import {
   Zap,
   BarChart3,
   Shield,
+  Menu,
+  X,
 } from "lucide-react";
-import Button from "./components/button";
+import Button from "./components/Button";
+import { useState } from "react";
 
 export default function RiggyLanding() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Header */}
-      <header className="border-b border-gray-800">
+      <header className="border-b border-gray-800 relative">
         <div className="container mx-auto px-4 py-4">
           <nav className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <span className="text-2xl font-bold">Riggy</span>
             </div>
+
+            {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
               <a
                 href="#download"
@@ -38,7 +44,52 @@ export default function RiggyLanding() {
                 Sobre
               </a>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
           </nav>
+
+          {/* Mobile Menu */}
+          <div
+            className={`md:hidden absolute top-full left-0 right-0 bg-black border-b border-gray-800 z-50 transition-all duration-500 ease-out ${
+              isMenuOpen
+                ? "opacity-100 max-h-96"
+                : "opacity-0 max-h-0 overflow-hidden"
+            }`}
+          >
+            <div className="flex flex-col space-y-4 p-4">
+              <a
+                href="#download"
+                className="hover:text-orange-500 transition-colors py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Download
+              </a>
+              <a
+                href="#tutorial"
+                className="hover:text-orange-500 transition-colors py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Tutorial
+              </a>
+              <a
+                href="#about"
+                className="hover:text-orange-500 transition-colors py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Sobre
+              </a>
+            </div>
+          </div>
         </div>
       </header>
 
@@ -130,7 +181,7 @@ export default function RiggyLanding() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-            <Button variant="default" className="py-7 px-16">
+            <Button variant="default" className="py-6 px-12 text-lg font-bold">
               <Download className="w-6 h-6" />
               Download Riggy v1.0
             </Button>
@@ -138,7 +189,7 @@ export default function RiggyLanding() {
             <a
               href="https://github.com/umer0586/SensaGram"
               target="_blank"
-              className="border-2 border-gray-600 hover:border-orange-500 text-white hover:text-orange-500 px-12 py-6 rounded-lg font-bold text-lg transition-colors flex items-center gap-3"
+              className="border-2 border-gray-600 hover:border-orange-500 text-white hover:text-orange-500 py-6 px-12 rounded-lg font-bold text-lg transition-colors flex items-center gap-3"
             >
               <Github className="w-6 h-6" />
               Sensagram no GitHub
@@ -286,7 +337,10 @@ export default function RiggyLanding() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-[url('/bg3.png')] bg-center bg-cover bg-no-repeat">
+      <section
+        id="about"
+        className="py-20 bg-[url('/bg3.png')] bg-center bg-cover bg-no-repeat"
+      >
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-8">
             Sobre o <span className="text-orange-500">Riggy</span>
