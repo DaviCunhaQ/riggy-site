@@ -181,7 +181,10 @@ export default function RiggyLanding() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-            <Button variant="default" className="py-6 px-12 text-lg font-bold">
+            <Button
+              variant="default"
+              className="py-6 px-12 text-lg font-bold w-full sm:w-auto"
+            >
               <Download className="w-6 h-6" />
               Download Riggy v1.0
             </Button>
@@ -189,7 +192,7 @@ export default function RiggyLanding() {
             <a
               href="https://github.com/umer0586/SensaGram"
               target="_blank"
-              className="border-2 border-gray-600 hover:border-orange-500 text-white hover:text-orange-500 py-6 px-12 rounded-lg font-bold text-lg transition-colors flex items-center gap-3"
+              className="border-2 border-gray-600 hover:border-orange-500 text-white hover:text-orange-500 py-6 px-12 rounded-lg font-bold text-lg transition-colors flex items-center gap-3 w-full sm:w-auto justify-center"
             >
               <Github className="w-6 h-6" />
               Sensagram no GitHub
