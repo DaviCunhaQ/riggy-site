@@ -6,7 +6,7 @@ import {
   BarChart3,
   Shield,
 } from "lucide-react";
-import Button from "./components/Button";
+import Button from "./components/button";
 
 export default function RiggyLanding() {
   return (
