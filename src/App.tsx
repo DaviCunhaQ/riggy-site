@@ -6,6 +6,7 @@ import {
   BarChart3,
   Shield,
 } from "lucide-react";
+import Button from "./components/Button";
 
 export default function RiggyLanding() {
   return (
@@ -42,14 +43,14 @@ export default function RiggyLanding() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 md:py-32">
+      <section className="py-20 md:py-32 bg-[url('/bg1.png')] bg-center bg-cover bg-no-repeat">
         <div className="container mx-auto px-4 text-center">
           <div className="w-full flex justify-center items-center mb-6">
-          <img
-            src="/riggy-logo.jpeg"
-            alt="Riggy Logo"
-            className="w-[100px] h-[100px] rounded-lg"
-          />
+            <img
+              src="/riggy-logo.jpeg"
+              alt="Riggy Logo"
+              className="w-[120px] h-[120px] rounded-lg"
+            />
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
             <span className="text-orange-500">Riggy</span>
@@ -59,20 +60,14 @@ export default function RiggyLanding() {
             analise e otimize suas estruturas com precisão em tempo real.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a
-              href="#download"
-              className="bg-orange-500 hover:bg-orange-600 text-black px-8 py-4 rounded-lg font-semibold transition-colors flex items-center gap-2"
-            >
+            <Button variant="default">
               <Download className="w-5 h-5" />
               Baixar Riggy
-            </a>
-            <a
-              href="#tutorial"
-              className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-black px-8 py-4 rounded-lg font-semibold transition-colors flex items-center gap-2"
-            >
+            </Button>
+            <Button variant="outline">
               Ver Tutorial
               <ArrowRight className="w-5 h-5" />
-            </a>
+            </Button>
           </div>
         </div>
       </section>
@@ -120,7 +115,10 @@ export default function RiggyLanding() {
       </section>
 
       {/* Download Section */}
-      <section id="download" className="py-20">
+      <section
+        id="download"
+        className="py-20 bg-[url('/bg2.png')] bg-center bg-cover bg-no-repeat"
+      >
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-8">
             Baixe o <span className="text-orange-500">Riggy</span>
@@ -132,13 +130,13 @@ export default function RiggyLanding() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-            <button className="bg-orange-500 hover:bg-orange-600 text-black px-12 py-6 rounded-lg font-bold text-lg transition-colors flex items-center gap-3 shadow-lg">
+            <Button variant="default" className="py-7 px-16">
               <Download className="w-6 h-6" />
               Download Riggy v1.0
-            </button>
+            </Button>
 
             <a
-              href="https://github.com/sensagram"
+              href="https://github.com/umer0586/SensaGram"
               target="_blank"
               className="border-2 border-gray-600 hover:border-orange-500 text-white hover:text-orange-500 px-12 py-6 rounded-lg font-bold text-lg transition-colors flex items-center gap-3"
             >
@@ -288,7 +286,7 @@ export default function RiggyLanding() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20">
+      <section id="about" className="py-20 bg-[url('/bg3.png')] bg-center bg-cover bg-no-repeat">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-8">
             Sobre o <span className="text-orange-500">Riggy</span>
@@ -326,7 +324,7 @@ export default function RiggyLanding() {
               <p className="text-sm mt-1">
                 Desenvolvido em parceria com{" "}
                 <a
-                  href="https://github.com/sensagram"
+                  href="https://github.com/umer0586/SensaGram"
                   className="text-orange-500 hover:underline"
                 >
                   Sensagram
