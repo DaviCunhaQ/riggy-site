@@ -8,7 +8,7 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import Button from "./components/Button";
+import Button from "./components/button";
 import { useState } from "react";
 
 export default function RiggyLanding() {
