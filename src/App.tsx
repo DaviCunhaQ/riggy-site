@@ -7,6 +7,7 @@ import {
   Shield,
   Menu,
   X,
+  
 } from "lucide-react";
 import Button from "./components/button";
 import { useState } from "react";
@@ -183,10 +184,11 @@ export default function RiggyLanding() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
             <Button
               variant="default"
-              className="py-6 px-12 text-lg font-bold w-full sm:w-auto"
+              className="py-6 px-12 text-lg font-bold w-full sm:w-auto gap-2"
             >
               <Download className="w-6 h-6" />
               Download Riggy v1.0
+              <img src="/windows.svg" alt="" className="h-5 w-5 ml-2" />
             </Button>
 
             <a
