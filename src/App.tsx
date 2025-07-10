@@ -45,6 +45,14 @@ export default function RiggyLanding() {
   const step2Animation = useInViewAnimation<HTMLDivElement>();
   const step3Animation = useInViewAnimation<HTMLDivElement>();
   const step4Animation = useInViewAnimation<HTMLDivElement>();
+  function handleSmoothScroll(event: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>, targetId: string) {
+    event.preventDefault(); // evita o jump instantâneo padrão
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+  
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Header */}
@@ -60,18 +68,27 @@ export default function RiggyLanding() {
               <a
                 href="#download"
                 className="hover:text-orange-500 transition-colors"
+                onClick={(e) => {
+                  handleSmoothScroll(e, "download");
+                }}
               >
                 Download
               </a>
               <a
                 href="#tutorial"
                 className="hover:text-orange-500 transition-colors"
+                onClick={(e) => {
+                  handleSmoothScroll(e, "tutorial");
+                }}
               >
                 Tutorial
               </a>
               <a
                 href="#about"
                 className="hover:text-orange-500 transition-colors"
+                onClick={(e) => {
+                  handleSmoothScroll(e, "about");
+                }}
               >
                 Sobre
               </a>
@@ -102,21 +119,30 @@ export default function RiggyLanding() {
               <a
                 href="#download"
                 className="hover:text-orange-500 transition-colors py-2"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={(e) => {
+                  setIsMenuOpen(false)
+                  handleSmoothScroll(e, "download");
+                }}
               >
                 Download
               </a>
               <a
                 href="#tutorial"
                 className="hover:text-orange-500 transition-colors py-2"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={(e) => {
+                  setIsMenuOpen(false)
+                  handleSmoothScroll(e, "tutorial");
+                }}
               >
                 Tutorial
               </a>
               <a
                 href="#about"
                 className="hover:text-orange-500 transition-colors py-2"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={(e) => {
+                  setIsMenuOpen(false)
+                  handleSmoothScroll(e, "about");
+                }}
               >
                 Sobre
               </a>
@@ -143,11 +169,11 @@ export default function RiggyLanding() {
             analise e otimize suas estruturas com precisão em tempo real.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button variant="default">
+            <Button variant="default" onClick={(e) => handleSmoothScroll(e, "download")}>
               <Download className="w-5 h-5" />
               Baixar Riggy
             </Button>
-            <Button variant="outline">
+            <Button variant="outline" onClick={(e) => handleSmoothScroll(e, "tutorial")}>
               Ver Tutorial
               <ArrowRight className="w-5 h-5" />
             </Button>
