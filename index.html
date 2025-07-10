@@ -1,10 +1,72 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/riggy-logo.jpeg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Riggy</title>
+    <style>
+      @keyframes slide-in-top-left {
+        from {
+          transform: translate(-30%, -30%);
+          opacity: 0;
+        }
+        to {
+          transform: translate(0, 0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slide-in-top-right {
+        from {
+          transform: translate(30%, -30%);
+          opacity: 0;
+        }
+        to {
+          transform: translate(0, 0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slide-in-bottom-left {
+        from {
+          transform: translate(-30%, 30%);
+          opacity: 0;
+        }
+        to {
+          transform: translate(0, 0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slide-in-bottom-right {
+        from {
+          transform: translate(30%, 30%);
+          opacity: 0;
+        }
+        to {
+          transform: translate(0, 0);
+          opacity: 1;
+        }
+      }
+
+      .animate-slide-in-top-left {
+        animation: slide-in-top-left 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+
+      .animate-slide-in-top-right {
+        animation: slide-in-top-right 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+
+      .animate-slide-in-bottom-left {
+        animation: slide-in-bottom-left 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+
+      .animate-slide-in-bottom-right {
+        animation: slide-in-bottom-right 1s cubic-bezier(0.4, 0, 0.2, 1)
+          forwards;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

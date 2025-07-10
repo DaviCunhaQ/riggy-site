@@ -7,13 +7,44 @@ import {
   Shield,
   Menu,
   X,
-  
 } from "lucide-react";
 import Button from "./components/button";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+export function useInViewAnimation<T extends HTMLElement>() {
+  const ref = useRef<T>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // só anima uma vez
+        }
+      },
+      {
+        threshold: 0.1, // 10% visível já ativa
+      }
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return { ref, isVisible };
+}
 
 export default function RiggyLanding() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const step1Animation = useInViewAnimation<HTMLDivElement>();
+  const step2Animation = useInViewAnimation<HTMLDivElement>();
+  const step3Animation = useInViewAnimation<HTMLDivElement>();
+  const step4Animation = useInViewAnimation<HTMLDivElement>();
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Header */}
@@ -241,7 +272,12 @@ export default function RiggyLanding() {
                   </p>
                 </div>
                 <div className="md:w-1/2">
-                  <div className="bg-gray-800 rounded-lg p-8 border border-gray-700">
+                  <div
+                    ref={step1Animation.ref}
+                    className={`bg-gray-800 rounded-lg p-8 border border-gray-700 transition-opacity duration-700 ${
+                      step1Animation.isVisible ? "animate-slide-in-top-right" : "opacity-0"
+                    }`}
+                  >
                     <img
                       src="/placeholder.svg?height=200&width=300"
                       alt="Tela de instalação do Riggy"
@@ -269,7 +305,12 @@ export default function RiggyLanding() {
                   </p>
                 </div>
                 <div className="md:w-1/2">
-                  <div className="bg-gray-800 rounded-lg p-8 border border-gray-700">
+                  <div
+                    ref={step2Animation.ref}
+                    className={`bg-gray-800 rounded-lg p-8 border border-gray-700 transition-opacity duration-700 ${
+                      step2Animation.isVisible ? "animate-slide-in-top-left" : "opacity-0"
+                    }`}
+                  >
                     <img
                       src="/placeholder.svg?height=200&width=300"
                       alt="Interface de conexão de sensores"
@@ -297,7 +338,12 @@ export default function RiggyLanding() {
                   </p>
                 </div>
                 <div className="md:w-1/2">
-                  <div className="bg-gray-800 rounded-lg p-8 border border-gray-700">
+                  <div
+                    ref={step3Animation.ref}
+                    className={`bg-gray-800 rounded-lg p-8 border border-gray-700 transition-opacity duration-700 ${
+                      step3Animation.isVisible ? "animate-slide-in-top-right" : "opacity-0"
+                    }`}
+                  >
                     <img
                       src="/placeholder.svg?height=200&width=300"
                       alt="Dashboard de análise do Riggy"
@@ -325,7 +371,12 @@ export default function RiggyLanding() {
                   </p>
                 </div>
                 <div className="md:w-1/2">
-                  <div className="bg-gray-800 rounded-lg p-8 border border-gray-700">
+                  <div
+                    ref={step4Animation.ref}
+                    className={`bg-gray-800 rounded-lg p-8 border border-gray-700 transition-opacity duration-700 ${
+                      step4Animation.isVisible ? "animate-slide-in-top-left" : "opacity-0"
+                    }`}
+                  >
                     <img
                       src="/placeholder.svg?height=200&width=300"
                       alt="Tela de relatórios do Riggy"
