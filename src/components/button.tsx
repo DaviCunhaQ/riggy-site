@@ -2,10 +2,12 @@ export default function Button({
   children,
   variant,
   className,
+  href,
   onClick
 }: {
   children: React.ReactNode;
   variant: "default" | "outline";
+  href?: string;
   className?: string
   onClick?: React.MouseEventHandler<HTMLAnchorElement> | undefined
 }) {
@@ -14,7 +16,7 @@ export default function Button({
       {variant === "default" && (
         <a
           onClick={onClick}
-          href="#download"
+          href={href ? href:"#download"}
           className={`hover:scale-[103%] transition-all duration-300 bg-orange-500 hover:bg-orange-600 text-black px-8 py-4 rounded-lg font-semibold flex items-center gap-2 ${className}`}
         >
           {children}

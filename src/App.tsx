@@ -7,6 +7,7 @@ import {
   Shield,
   Menu,
   X,
+  BookOpen
 } from "lucide-react";
 import Button from "./components/button";
 import { useEffect, useRef, useState } from "react";
@@ -45,14 +46,17 @@ export default function RiggyLanding() {
   const step2Animation = useInViewAnimation<HTMLDivElement>();
   const step3Animation = useInViewAnimation<HTMLDivElement>();
   const step4Animation = useInViewAnimation<HTMLDivElement>();
-  function handleSmoothScroll(event: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>, targetId: string) {
+  function handleSmoothScroll(
+    event: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
+    targetId: string
+  ) {
     event.preventDefault(); // evita o jump instantâneo padrão
     const element = document.getElementById(targetId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   }
-  
+
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Header */}
@@ -92,6 +96,15 @@ export default function RiggyLanding() {
               >
                 Sobre
               </a>
+              <a
+                href="#about"
+                className="hover:text-orange-500 transition-colors"
+                onClick={(e) => {
+                  handleSmoothScroll(e, "about");
+                }}
+              >
+                Docs
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -120,7 +133,7 @@ export default function RiggyLanding() {
                 href="#download"
                 className="hover:text-orange-500 transition-colors py-2"
                 onClick={(e) => {
-                  setIsMenuOpen(false)
+                  setIsMenuOpen(false);
                   handleSmoothScroll(e, "download");
                 }}
               >
@@ -130,7 +143,7 @@ export default function RiggyLanding() {
                 href="#tutorial"
                 className="hover:text-orange-500 transition-colors py-2"
                 onClick={(e) => {
-                  setIsMenuOpen(false)
+                  setIsMenuOpen(false);
                   handleSmoothScroll(e, "tutorial");
                 }}
               >
@@ -140,7 +153,7 @@ export default function RiggyLanding() {
                 href="#about"
                 className="hover:text-orange-500 transition-colors py-2"
                 onClick={(e) => {
-                  setIsMenuOpen(false)
+                  setIsMenuOpen(false);
                   handleSmoothScroll(e, "about");
                 }}
               >
@@ -169,11 +182,17 @@ export default function RiggyLanding() {
             analise e otimize suas estruturas com precisão em tempo real.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button variant="default" onClick={(e) => handleSmoothScroll(e, "download")}>
+            <Button
+              variant="default"
+              onClick={(e) => handleSmoothScroll(e, "download")}
+            >
               <Download className="w-5 h-5" />
               Baixar Riggy
             </Button>
-            <Button variant="outline" onClick={(e) => handleSmoothScroll(e, "tutorial")}>
+            <Button
+              variant="outline"
+              onClick={(e) => handleSmoothScroll(e, "tutorial")}
+            >
               Ver Tutorial
               <ArrowRight className="w-5 h-5" />
             </Button>
@@ -241,6 +260,7 @@ export default function RiggyLanding() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
             <Button
               variant="default"
+              href="https://github.com/DaviCunhaQ/riggy/releases/download/v1.0.0/riggy.zip"
               className="py-6 px-12 text-lg font-bold w-full sm:w-auto gap-2 flex justify-center"
             >
               <Download className="w-6 h-6" />
@@ -301,7 +321,9 @@ export default function RiggyLanding() {
                   <div
                     ref={step1Animation.ref}
                     className={`bg-gray-800 rounded-lg p-8 border border-gray-700 transition-opacity duration-700 ${
-                      step1Animation.isVisible ? "animate-slide-in-top-right" : "opacity-0"
+                      step1Animation.isVisible
+                        ? "animate-slide-in-top-right"
+                        : "opacity-0"
                     }`}
                   >
                     <img
@@ -334,7 +356,9 @@ export default function RiggyLanding() {
                   <div
                     ref={step2Animation.ref}
                     className={`bg-gray-800 rounded-lg p-8 border border-gray-700 transition-opacity duration-700 ${
-                      step2Animation.isVisible ? "animate-slide-in-top-left" : "opacity-0"
+                      step2Animation.isVisible
+                        ? "animate-slide-in-top-left"
+                        : "opacity-0"
                     }`}
                   >
                     <img
@@ -367,7 +391,9 @@ export default function RiggyLanding() {
                   <div
                     ref={step3Animation.ref}
                     className={`bg-gray-800 rounded-lg p-8 border border-gray-700 transition-opacity duration-700 ${
-                      step3Animation.isVisible ? "animate-slide-in-top-right" : "opacity-0"
+                      step3Animation.isVisible
+                        ? "animate-slide-in-top-right"
+                        : "opacity-0"
                     }`}
                   >
                     <img
@@ -400,7 +426,9 @@ export default function RiggyLanding() {
                   <div
                     ref={step4Animation.ref}
                     className={`bg-gray-800 rounded-lg p-8 border border-gray-700 transition-opacity duration-700 ${
-                      step4Animation.isVisible ? "animate-slide-in-top-left" : "opacity-0"
+                      step4Animation.isVisible
+                        ? "animate-slide-in-top-left"
+                        : "opacity-0"
                     }`}
                   >
                     <img
@@ -439,6 +467,17 @@ export default function RiggyLanding() {
               integrada que transforma dados de sensores em insights acionáveis
               para manter suas estruturas seguras e otimizadas.
             </p>
+            <div className="flex justify-center items-center mt-10">
+              <Button
+                variant="default"
+                href="https://github.com/DaviCunhaQ/riggy/releases/download/v1.0.0/riggy-docs.pdf"
+                className="py-2 text-lg font-bold w-full sm:w-auto gap-2 flex justify-center !bg-blue-900 !text-white"
+              >
+                <Download className="w-6 h-6" />
+                Documentação Riggy
+                <BookOpen className="h-5 w-5 ml-2 max-[410px]:hidden" />
+              </Button>
+            </div>
           </div>
         </div>
       </section>
