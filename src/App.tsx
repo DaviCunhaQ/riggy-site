@@ -7,7 +7,7 @@ import {
   Shield,
   Menu,
   X,
-  BookOpen
+  BookOpen,
 } from "lucide-react";
 import Button from "./components/button";
 import { useEffect, useRef, useState } from "react";
@@ -312,9 +312,10 @@ export default function RiggyLanding() {
                     Instalação e Configuração
                   </h3>
                   <p className="text-gray-300 text-lg">
-                    Baixe e instale o Riggy em seu computador. Execute o
-                    instalador e siga as instruções na tela. Certifique-se de
-                    que o Sensagram esteja configurado e conectado aos sensores.
+                    Baixe o arquivo ZIP do Riggy e extraia seu conteúdo. Em
+                    seguida, abra a pasta "riggy" extraída, clique com o botão
+                    direito no arquivo riggy.exe e selecione Enviar para → Área
+                    de trabalho (criar atalho). Por fim, execute o Riggy.
                   </p>
                 </div>
                 <div className="md:w-1/2">
@@ -327,7 +328,7 @@ export default function RiggyLanding() {
                     }`}
                   >
                     <img
-                      src="/placeholder.svg?height=200&width=300"
+                      src="/instalacao.png"
                       alt="Tela de instalação do Riggy"
                       width={300}
                       height={200}
@@ -344,12 +345,16 @@ export default function RiggyLanding() {
                     2
                   </div>
                   <h3 className="text-2xl font-semibold mb-4">
-                    Conexão com Sensores
+                    Configurando o Sensagram
                   </h3>
                   <p className="text-gray-300 text-lg">
-                    Conecte seus sensores através do Sensagram. O Riggy
-                    detectará automaticamente os dispositivos conectados e
-                    começará a receber dados em tempo real.
+                    No Sensagram, ative em "Sensors" o accelerometer e o
+                    gyroscope. Em "Settings", insira no Remote Address o IP do
+                    Riggy e, em Remote Port No, a porta informada. Na aba
+                    "Home", clique em Stream para iniciar. (Certifique-se de que
+                    o computador e o celular estejam na mesma rede Wi-Fi;
+                    recomendamos usar o hotspot do celular para evitar problemas
+                    de conexão.)
                   </p>
                 </div>
                 <div className="md:w-1/2">
@@ -362,7 +367,7 @@ export default function RiggyLanding() {
                     }`}
                   >
                     <img
-                      src="/placeholder.svg?height=200&width=300"
+                      src="/sensagram.jpg"
                       alt="Interface de conexão de sensores"
                       width={300}
                       height={200}
@@ -382,9 +387,11 @@ export default function RiggyLanding() {
                     Análise e Monitoramento
                   </h3>
                   <p className="text-gray-300 text-lg">
-                    Visualize os dados em tempo real através dos gráficos e
-                    dashboards intuitivos. Configure alertas para anomalias e
-                    monitore a saúde estrutural continuamente.
+                    No Riggy, selecione os gráficos e a norma técnica (ou
+                    personalizada), defina os limites e clique em Iniciar para
+                    visualizar os dados em tempo real. Ao terminar, clique em
+                    Encerrar para finalizar a captação e habilitar a exportação
+                    dos relatórios.
                   </p>
                 </div>
                 <div className="md:w-1/2">
@@ -397,7 +404,7 @@ export default function RiggyLanding() {
                     }`}
                   >
                     <img
-                      src="/placeholder.svg?height=200&width=300"
+                      src="/riggy.png"
                       alt="Dashboard de análise do Riggy"
                       width={300}
                       height={200}
@@ -417,9 +424,10 @@ export default function RiggyLanding() {
                     Relatórios e Exportação
                   </h3>
                   <p className="text-gray-300 text-lg">
-                    Gere relatórios detalhados das análises estruturais. Exporte
-                    dados em diversos formatos para documentação e
-                    compartilhamento com sua equipe.
+                    Instale um leitor de arquivos .epub em sua máquina. No
+                    Riggy, é possível exportar o relatório em EPUB ou PDF, junto
+                    com uma gravação .MP4 dos gráficos. Todos os arquivos serão
+                    salvos na pasta extraída do Riggy.
                   </p>
                 </div>
                 <div className="md:w-1/2">
@@ -432,7 +440,7 @@ export default function RiggyLanding() {
                     }`}
                   >
                     <img
-                      src="/placeholder.svg?height=200&width=300"
+                      src="/relatorios.png"
                       alt="Tela de relatórios do Riggy"
                       width={300}
                       height={200}
